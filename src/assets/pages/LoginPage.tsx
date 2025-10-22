@@ -1,3 +1,5 @@
+import AuthButton from "../components/buttons/AuthButton";
+import InputComponent from "../components/inputs/InputComponent";
 import AuthLayout from "../layouts/AuthLayout";
 import NavbarLayout from "../layouts/NavbarLayout";
 
@@ -12,12 +14,26 @@ export default function LoginPage() {
             Yuk, lanjutin belajarmu di videobelajar.
           </p>
         </div>
-        <form className="gap-[20px] md:gap-[24px] w-fill md:w-fit">
-          <div className="w-full md:w-fit gap-[24px]">
+        <form className="gap-[20px] md:gap-[24px] w-full">
+          <div className="w-full  flex flex-col gap-[24px]">
             <div className="w-full gap-[12px] md:gap-[16px]">
               <p>
                 E-Mail <span className="text-red-500">*</span>
               </p>
+              <InputComponent id="email" />
+            </div>
+            <div className="w-full gap-[12px] md:gap-[16px]">
+              <p>
+                Kata Sandi <span className="text-red-500">*</span>
+              </p>
+              <InputComponent id="password" isPassword={true} />
+            </div>
+            <a href="">
+              <p className="text-[#333333AD] text-end">Lupa Password?</p>
+            </a>
+            <div className="flex flex-col gap-[16px] w-full">
+              <AuthButton label="Masuk" theme="primary" type="submit" />
+              <AuthButton label="Daftar" theme="secondary" type="button" />
             </div>
           </div>
         </form>
