@@ -18,7 +18,7 @@ export default function AuthButton({
 }: TAuthButton) {
   return (
     <button
-      onClick={action}
+      onClick={() => action?.()}
       type={type}
       className={`w-full rounded-[10px] text-[14px] md:text-[16px] font-bold font-DMSans h-[34px] md:h-[42px] ${
         theme === "primary"
