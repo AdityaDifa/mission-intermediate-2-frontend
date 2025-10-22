@@ -1,5 +1,6 @@
+import googleIcon from "../../images/icons/google.png";
 type TAuthButton = {
-  theme: "primary" | "secondary";
+  theme: "primary" | "secondary" | "google";
   label: string;
   type: "submit" | "reset" | "button" | undefined;
   action?: () => void;
@@ -7,6 +8,7 @@ type TAuthButton = {
 const style: string[] = [
   "bg-[#3ECF4C] text-white",
   "bg-[#E2FCD9CC] text-[#3ECF4C]",
+  "bg-white text-[#4A505C] border border-[#F1F1F1]",
 ];
 export default function AuthButton({
   theme,
@@ -19,10 +21,19 @@ export default function AuthButton({
       onClick={action}
       type={type}
       className={`w-full rounded-[10px] text-[14px] md:text-[16px] font-bold font-DMSans h-[34px] md:h-[42px] ${
-        theme === "primary" ? style[0] : style[1]
+        theme === "primary"
+          ? style[0]
+          : theme === "secondary"
+          ? style[1]
+          : style[2]
       }`}
     >
-      {label}
+      <div className="flex justify-center items-center">
+        {theme === "google" && (
+          <img src={googleIcon} className="w-[15px] mr-1" />
+        )}
+        {label}
+      </div>
     </button>
   );
 }
