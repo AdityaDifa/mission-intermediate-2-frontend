@@ -37,11 +37,11 @@ export default function InputTelpFlagComponent({
   }, [keyFlag]);
 
   return (
-    <div className="flex border-[#3A35411F] rounded-[6px] w-full">
-      <div className="basis-1/4 bg-[#F4F5FA] border-r border-r-[#3A35411F] px-[10px] py-[4px] p-1">
+    <div className="flex border-[#3A35411F] rounded-[6px] w-full h-full">
+      <div className="basis-1/4 bg-[#F4F5FA] border-r border-r-[#3A35411F] p-0.5 flex items-center">
         <img src={flag} alt="" className="w-[24px]" />
       </div>
-      <div className="basis-3/4 w-full">
+      <div className="basis-3/4 w-full flex items-center">
         <select
           className="w-full"
           name="phoneId"

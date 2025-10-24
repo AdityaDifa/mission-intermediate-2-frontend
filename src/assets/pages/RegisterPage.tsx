@@ -52,11 +52,22 @@ export default function RegisterPage() {
               <p>
                 No. Hp <span className="text-red-500">*</span>
               </p>
-              <InputTelpFlagComponent
-                id="telpFlag"
-                value={phoneFlag}
-                setValue={setPhoneFlag}
-              />
+              <div className="flex gap-2 items-center">
+                <div className="basis-1/3 border border-[#3A35411F] md:h-[34px] h-[31px] rounded-[6px]">
+                  <InputTelpFlagComponent
+                    id="telpFlag"
+                    value={phoneFlag}
+                    setValue={setPhoneFlag}
+                  />
+                </div>
+                <div className="basis-2/3">
+                  <InputComponent
+                    id="phone"
+                    value={phone}
+                    setValue={setPhone}
+                  />
+                </div>
+              </div>
             </div>
           </form>
         </div>
