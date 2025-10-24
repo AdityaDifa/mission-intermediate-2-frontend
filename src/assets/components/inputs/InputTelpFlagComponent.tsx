@@ -13,7 +13,7 @@ export default function InputTelpFlagComponent({
   setValue,
 }: TInputTelpFlagComponent) {
   const [flag, setFlag] = useState("https://flagcdn.com/16x12/ca.png");
-  const [keyFlag, setKeyFlag] = useState("");
+  const [keyFlag, setKeyFlag] = useState("ca");
 
   function getAllDialCode() {
     const allDialCode: Array<any> = CountryList.getAll();

@@ -4,14 +4,20 @@ import AuthLayout from "../layouts/AuthLayout";
 import NavbarLayout from "../layouts/NavbarLayout";
 import InputGenderComponent from "../components/inputs/InputGenderComponent";
 import InputTelpFlagComponent from "../components/inputs/InputTelpFlagComponent";
+import AuthButton from "../components/buttons/AuthButton";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
   const [phoneFlag, setPhoneFlag] = useState("");
   const [gender, setGender] = useState("");
+
+  const navigate = useNavigate();
+
   return (
     <>
       <NavbarLayout />;
@@ -53,14 +59,14 @@ export default function RegisterPage() {
                 No. Hp <span className="text-red-500">*</span>
               </p>
               <div className="flex gap-2 items-center">
-                <div className="basis-1/3 border border-[#3A35411F] md:h-[34px] h-[31px] rounded-[6px]">
+                <div className="md:basis-1/4 basis-1/3 border border-[#3A35411F] md:h-[34px] h-[31px] rounded-[6px]">
                   <InputTelpFlagComponent
                     id="telpFlag"
                     value={phoneFlag}
                     setValue={setPhoneFlag}
                   />
                 </div>
-                <div className="basis-2/3">
+                <div className="md:basis-3/4 basis-2/3">
                   <InputComponent
                     id="phone"
                     value={phone}
@@ -69,6 +75,38 @@ export default function RegisterPage() {
                 </div>
               </div>
             </div>
+            <div>
+              <p>
+                Kata Sandi <span className="text-red-500">*</span>
+              </p>
+              <InputComponent
+                id="password"
+                value={password}
+                setValue={setPassword}
+                isPassword={true}
+              />
+            </div>
+            <div>
+              <p>
+                Konfirmasi Kata Sandi <span className="text-red-500">*</span>
+              </p>
+              <InputComponent
+                id="passwordConfirm"
+                value={passwordConfirm}
+                setValue={setPasswordConfirm}
+                isPassword={true}
+              />
+            </div>
+            <a href="">
+              <p className="text-end">Lupa Password</p>
+            </a>
+            <AuthButton label="Daftar" theme="primary" type="submit" />
+            <AuthButton
+              label="Masuk"
+              theme="secondary"
+              type="button"
+              action={() => navigate("/login")}
+            />
           </form>
         </div>
       </AuthLayout>
