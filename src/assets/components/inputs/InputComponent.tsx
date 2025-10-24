@@ -8,27 +8,27 @@ type TInputComponent = {
   setValue: (newValue: string) => void;
 };
 
-let isShow: boolean = false;
-function togglePassword() {
-  const inputElement: any = document.getElementById("password");
-  const iconPassword: any = document.getElementById("iconShowPassword");
-  if (isShow) {
-    inputElement.type = "password";
-    iconPassword.src = hidePassword;
-    isShow = false;
-  } else {
-    inputElement.type = "text";
-    iconPassword.src = showPassword;
-    isShow = true;
-  }
-}
-
 export default function InputComponent({
   id,
   isPassword = false,
   value,
   setValue,
 }: TInputComponent) {
+  let isShow: boolean = false;
+  function togglePassword() {
+    const inputElement: any = document.getElementById(id);
+    const iconPassword: any = document.getElementById(`${id}icon`);
+    if (isShow) {
+      inputElement.type = "password";
+      iconPassword.src = hidePassword;
+      isShow = false;
+    } else {
+      inputElement.type = "text";
+      iconPassword.src = showPassword;
+      isShow = true;
+    }
+  }
+
   return (
     <div className="relative">
       <input
@@ -40,7 +40,7 @@ export default function InputComponent({
       />
       {isPassword && (
         <img
-          id="iconShowPassword"
+          id={`${id}icon`}
           src={hidePassword}
           alt=""
           className="absolute w-[24px] right-5 top-[15%] opacity-50"
