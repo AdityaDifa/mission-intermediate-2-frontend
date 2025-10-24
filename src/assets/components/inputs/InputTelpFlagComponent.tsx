@@ -1,5 +1,6 @@
 import CountryList from "country-list-with-dial-code-and-flag";
 import { useEffect, useState } from "react";
+import noFlagIcon from "../../images/noFlag.png";
 
 type TInputTelpFlagComponent = {
   id: string;
@@ -33,6 +34,7 @@ export default function InputTelpFlagComponent({
 
   useEffect(() => {
     setFlag(`https://flagcdn.com/16x12/${keyFlag}.png`);
+
     // console.log(flag); //just for testing
   }, [keyFlag]);
 

@@ -26,7 +26,7 @@ export default function RegisterPage() {
           <h1>Pendaftaraan Akun</h1>
           <p>Yuk, daftarkan akunmu sekarang juga</p>
         </div>
-        <div className="flex flex-col w-full rouded-[4px] border border-[#F1F1F1] p-[20px] md:p-[36px] md:gap-[36px] gap-[20px]">
+        <div className="flex flex-col w-full rouded-[4px] gap-[20px]">
           <form className="flex flex-col gap-[20px]">
             <div>
               <p>
@@ -108,6 +108,16 @@ export default function RegisterPage() {
               action={() => navigate("/login")}
             />
           </form>
+          <div className="flex flex-row items-center">
+            <div className="border-t border-[#F1F1F1] flex w-full"></div>
+            <p className="mx-2">Atau</p>
+            <div className="border-t border-[#F1F1F1] flex w-full"></div>
+          </div>
+          <AuthButton
+            label="Daftar dengan Google"
+            theme="google"
+            type="button"
+          />
         </div>
       </AuthLayout>
     </>
