@@ -14,8 +14,8 @@ export default function RegisterPage() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [fullName, setFullName] = useState("");
   const [shortPhone, setShortPhone] = useState("");
-  const [phoneFlag, setPhoneFlag] = useState("");
-  const [gender, setGender] = useState("");
+  const [phoneFlag, setPhoneFlag] = useState("+1");
+  const [gender, setGender] = useState("male");
 
   const navigate = useNavigate();
 
