@@ -6,28 +6,50 @@ import InputGenderComponent from "../components/inputs/InputGenderComponent";
 import InputTelpFlagComponent from "../components/inputs/InputTelpFlagComponent";
 import AuthButton from "../components/buttons/AuthButton";
 import { useNavigate } from "react-router-dom";
+import AuthRegister from "../services/AuthRegister";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
   const [fullName, setFullName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [shortPhone, setShortPhone] = useState("");
   const [phoneFlag, setPhoneFlag] = useState("");
   const [gender, setGender] = useState("");
 
   const navigate = useNavigate();
 
+  function checkPassword() {
+    return password === passwordConfirm ? true : false;
+  }
+
+  function submitRegister(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (checkPassword()) {
+      const phone: string = phoneFlag + shortPhone;
+      const isRegistered = AuthRegister({
+        email,
+        password,
+        fullName,
+        phone,
+        gender,
+      });
+      if (isRegistered) navigate("/login");
+    } else {
+      alert("Password and confirm password not match");
+    }
+  }
+
   return (
     <>
       <NavbarLayout />;
       <AuthLayout>
-        <div className="flex flex-col items-center gap-[10px]">
+        <div className="flex flex-col items-center gap-2.5">
           <h1>Pendaftaraan Akun</h1>
           <p>Yuk, daftarkan akunmu sekarang juga</p>
         </div>
-        <div className="flex flex-col w-full rouded-[4px] gap-[20px]">
-          <form className="flex flex-col gap-[20px]">
+        <div className="flex flex-col w-full rouded-[4px] gap-5">
+          <form className="flex flex-col gap-5" onSubmit={submitRegister}>
             <div>
               <p>
                 Nama Lengkap <span className="text-red-500">*</span>
@@ -59,7 +81,7 @@ export default function RegisterPage() {
                 No. Hp <span className="text-red-500">*</span>
               </p>
               <div className="flex gap-2 items-center">
-                <div className="md:basis-1/4 basis-1/3 border border-[#3A35411F] md:h-[34px] h-[31px] rounded-[6px]">
+                <div className="md:basis-1/4 basis-1/3 border border-[#3A35411F] md:h-[34px] h-[31px] rounded-md">
                   <InputTelpFlagComponent
                     id="telpFlag"
                     value={phoneFlag}
@@ -69,8 +91,8 @@ export default function RegisterPage() {
                 <div className="md:basis-3/4 basis-2/3">
                   <InputComponent
                     id="phone"
-                    value={phone}
-                    setValue={setPhone}
+                    value={shortPhone}
+                    setValue={setShortPhone}
                   />
                 </div>
               </div>

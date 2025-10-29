@@ -45,7 +45,7 @@ export default function InputTelpFlagComponent({
       </div>
       <div className="basis-3/4 w-full flex items-center">
         <select
-          className="w-full"
+          className="w-full text-right"
           name="phoneId"
           id={id}
           value={value}
