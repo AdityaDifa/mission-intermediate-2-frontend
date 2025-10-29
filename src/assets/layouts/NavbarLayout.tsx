@@ -8,6 +8,7 @@ export default function NavbarLayout() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const inAuthPage: boolean = pathname == "/Login" || pathname == "/Register";
+  const [toggleMenu, setToggleMenu] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -30,29 +31,38 @@ export default function NavbarLayout() {
     function MobileVIew() {
       return (
         <div className="relative">
-          <img src={dropdownIcon} className="w-5" />
-          <div className="absolute right-0 border p-2 bg-white w-25 flex flex-col gap-y-2">
-            <a href="">
-              <p>Kategori</p>
-            </a>
-            {isLogin ? (
-              <>
-                <a href="">
-                  <p>Profile</p>
-                </a>
-                <p onClick={handleLogout}>Logout</p>
-              </>
-            ) : (
-              <>
-                <Link to="/Login">
-                  <p>Login</p>
-                </Link>
-                <Link to="/Register">
-                  <p>Register</p>
-                </Link>
-              </>
-            )}
-          </div>
+          <img
+            src={dropdownIcon}
+            className="w-5"
+            onClick={() => setToggleMenu(!toggleMenu)}
+          />
+          {toggleMenu && (
+            <div
+              className="absolute right-0 border p-2 bg-white w-25 flex flex-col gap-y-2"
+              id="dropdownMenu"
+            >
+              <a href="">
+                <p>Kategori</p>
+              </a>
+              {isLogin ? (
+                <>
+                  <a href="">
+                    <p>Profile</p>
+                  </a>
+                  <p onClick={handleLogout}>Logout</p>
+                </>
+              ) : (
+                <>
+                  <Link to="/Login">
+                    <p>Login</p>
+                  </Link>
+                  <Link to="/Register">
+                    <p>Register</p>
+                  </Link>
+                </>
+              )}
+            </div>
+          )}
         </div>
       );
     }
