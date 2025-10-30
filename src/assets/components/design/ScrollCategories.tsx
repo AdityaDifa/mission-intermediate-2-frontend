@@ -30,7 +30,7 @@ export default function ScrollCategories({
   return (
     <div className="flex overflow-x-auto">
       {categories.map((category) => (
-        <ButtonCategory label={category} />
+        <ButtonCategory label={category} key={category} />
       ))}
     </div>
   );

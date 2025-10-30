@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { NormalButton } from "../components/buttons/NormalButton";
 import { useState } from "react";
 import ScrollCategories from "../components/design/scrollCategories";
+import ListClass from "../components/design/ListClass";
 
 export default function DashboardPage() {
   const isLogin = localStorage.getItem("isLogin") === "true";
@@ -41,6 +42,7 @@ export default function DashboardPage() {
           </p>
         </div>
         <ScrollCategories category={category} setCategories={setCategories} />
+        <ListClass numberGrid={3} />
       </DashboardLayout>
     </>
   );
