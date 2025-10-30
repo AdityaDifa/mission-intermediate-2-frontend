@@ -1,7 +1,7 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import logo from "../images/Logo.png";
+import logo from "../../images/Logo.png";
 import { useEffect, useState } from "react";
-import dropdownIcon from "../images/icons/dropdown-icon.png";
+import dropdownIcon from "../../images/icons/dropdown-icon.png";
 import AuthButton from "../../components/buttons/AuthButton";
 
 export default function NavbarLayout() {

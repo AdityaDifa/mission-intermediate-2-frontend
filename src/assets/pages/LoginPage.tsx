@@ -28,7 +28,7 @@ export default function LoginPage() {
       <AuthLayout>
         <div className="gap-[10px] w-full">
           <h1 className="text-center">Masuk ke Akun</h1>
-          <p className="text-center">
+          <p className="text-center gray">
             Yuk, lanjutin belajarmu di videobelajar.
           </p>
         </div>
@@ -38,13 +38,13 @@ export default function LoginPage() {
         >
           <div className="w-full flex flex-col gap-[24px]">
             <div className="w-full gap-[12px] md:gap-[16px]">
-              <p>
+              <p className="gray">
                 E-Mail <span className="text-red-500">*</span>
               </p>
               <InputComponent id="email" value={email} setValue={setEmail} />
             </div>
             <div className="w-full gap-[12px] md:gap-[16px]">
-              <p>
+              <p className="gray">
                 Kata Sandi <span className="text-red-500">*</span>
               </p>
               <InputComponent
@@ -68,7 +68,7 @@ export default function LoginPage() {
             </div>
             <div className="flex flex-row items-center">
               <div className="border-t border-[#F1F1F1] flex w-full"></div>
-              <p className="mx-2">Atau</p>
+              <p className="mx-2 gray">Atau</p>
               <div className="border-t border-[#F1F1F1] flex w-full"></div>
             </div>
             <AuthButton

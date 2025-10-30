@@ -20,5 +20,8 @@ h5 {
 }
 p {
   font-family: "DM Sans", sans-serif;
-  @apply text-[#333333AD] text-[14px] md:text-[16px];
+  @apply text-[14px] md:text-[16px];
+}
+p.gray {
+  @apply text-[#333333AD];
 }

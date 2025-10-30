@@ -46,12 +46,12 @@ export default function RegisterPage() {
       <AuthLayout>
         <div className="flex flex-col items-center gap-2.5">
           <h1>Pendaftaraan Akun</h1>
-          <p>Yuk, daftarkan akunmu sekarang juga</p>
+          <p className="gray">Yuk, daftarkan akunmu sekarang juga</p>
         </div>
         <div className="flex flex-col w-full rouded-[4px] gap-5">
           <form className="flex flex-col gap-5" onSubmit={submitRegister}>
             <div>
-              <p>
+              <p className="gray">
                 Nama Lengkap <span className="text-red-500">*</span>
               </p>
               <InputComponent
@@ -61,13 +61,13 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <p>
+              <p className="gray">
                 E-Mail <span className="text-red-500">*</span>
               </p>
               <InputComponent id="email" setValue={setEmail} value={email} />
             </div>
             <div>
-              <p>
+              <p className="gray">
                 Jenis Kelamin <span className="text-red-500">*</span>
               </p>
               <InputGenderComponent
@@ -77,7 +77,7 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <p>
+              <p className="gray">
                 No. Hp <span className="text-red-500">*</span>
               </p>
               <div className="flex gap-2 items-center">
@@ -98,7 +98,7 @@ export default function RegisterPage() {
               </div>
             </div>
             <div>
-              <p>
+              <p className="gray">
                 Kata Sandi <span className="text-red-500">*</span>
               </p>
               <InputComponent
@@ -109,7 +109,7 @@ export default function RegisterPage() {
               />
             </div>
             <div>
-              <p>
+              <p className="gray">
                 Konfirmasi Kata Sandi <span className="text-red-500">*</span>
               </p>
               <InputComponent
@@ -120,7 +120,7 @@ export default function RegisterPage() {
               />
             </div>
             <a href="">
-              <p className="text-end">Lupa Password</p>
+              <p className="text-end gray">Lupa Password</p>
             </a>
             <AuthButton label="Daftar" theme="primary" type="submit" />
             <AuthButton
