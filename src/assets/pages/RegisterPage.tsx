@@ -1,7 +1,7 @@
 import { useState } from "react";
 import InputComponent from "../components/inputs/InputComponent";
 import AuthLayout from "../layouts/AuthLayout";
-import NavbarLayout from "../layouts/NavbarLayout";
+import NavbarLayout from "../layouts/features/NavbarLayout";
 import InputGenderComponent from "../components/inputs/InputGenderComponent";
 import InputTelpFlagComponent from "../components/inputs/InputTelpFlagComponent";
 import AuthButton from "../components/buttons/AuthButton";

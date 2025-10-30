@@ -1,4 +1,4 @@
-import NavbarLayout from "../layouts/NavbarLayout";
+import NavbarLayout from "../layouts/features/NavbarLayout";
 
 export default function DashboardPage() {
   const isLogin = localStorage.getItem("isLogin") === "true";

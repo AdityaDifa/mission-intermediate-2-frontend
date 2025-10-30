@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import logo from "../images/Logo.png";
 import { useEffect, useState } from "react";
 import dropdownIcon from "../images/icons/dropdown-icon.png";
+import AuthButton from "../../components/buttons/AuthButton";
 
 export default function NavbarLayout() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -37,10 +38,7 @@ export default function NavbarLayout() {
             onClick={() => setToggleMenu(!toggleMenu)}
           />
           {toggleMenu && (
-            <div
-              className="absolute right-0 border p-2 bg-white w-25 flex flex-col gap-y-2"
-              id="dropdownMenu"
-            >
+            <div className="absolute right-0 border p-2 bg-white w-25 flex flex-col gap-y-2">
               <a href="">
                 <p>Kategori</p>
               </a>
@@ -68,7 +66,57 @@ export default function NavbarLayout() {
     }
 
     function DeskopView() {
-      return <></>;
+      return (
+        <div className="flex gap-4 w-[30%] items-center justify-end">
+          <a href="">
+            <h5
+              className="text-[#3ECF4C] font-semibold tracking-wide
+"
+            >
+              Kategori
+            </h5>
+          </a>
+          {isLogin ? (
+            <div className="relative">
+              <img
+                src="https://avatar.iran.liara.run/public"
+                alt=""
+                className="w-10"
+                onClick={() => setToggleMenu(!toggleMenu)}
+              />
+              {toggleMenu && (
+                <div className="absolute right-0 border p-2 bg-white w-25 flex flex-col gap-y-2">
+                  {isLogin && (
+                    <>
+                      <a href="">
+                        <p>Profile</p>
+                      </a>
+                      <p onClick={handleLogout} className="cursor-pointer">
+                        Logout
+                      </p>
+                    </>
+                  )}
+                </div>
+              )}
+            </div>
+          ) : (
+            <>
+              <AuthButton
+                label="Login"
+                theme="primary"
+                type="button"
+                action={() => navigate("/Login")}
+              />
+              <AuthButton
+                label="Register"
+                theme="white"
+                type="button"
+                action={() => navigate("/Register")}
+              />
+            </>
+          )}
+        </div>
+      );
     }
     return <>{isMobile ? <MobileVIew /> : <DeskopView />}</>;
   }

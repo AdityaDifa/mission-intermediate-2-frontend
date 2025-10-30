@@ -2,7 +2,7 @@ import { useState } from "react";
 import AuthButton from "../components/buttons/AuthButton";
 import InputComponent from "../components/inputs/InputComponent";
 import AuthLayout from "../layouts/AuthLayout";
-import NavbarLayout from "../layouts/NavbarLayout";
+import NavbarLayout from "../layouts/features/NavbarLayout";
 import AuthLogin from "../services/AuthLogin";
 import { useNavigate } from "react-router-dom";
 
