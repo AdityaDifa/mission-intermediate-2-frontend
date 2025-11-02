@@ -5,11 +5,10 @@ import boardInformationImage from "../images/background-images/board-information
 import { useNavigate } from "react-router-dom";
 import { NormalButton } from "../components/buttons/NormalButton";
 import { useState } from "react";
-import ScrollCategories from "../components/design/scrollCategories";
 import ListClass from "../components/design/ListClass";
+import ScrollCategories from "../components/design/ScrollCategories";
 
 export default function DashboardPage() {
-  const isLogin = localStorage.getItem("isLogin") === "true";
   const [category, setCategories] = useState("Semua Kelas");
   const navigate = useNavigate();
   return (
@@ -42,7 +41,7 @@ export default function DashboardPage() {
           </p>
         </div>
         <ScrollCategories category={category} setCategories={setCategories} />
-        <ListClass numberGrid={3} />
+        <ListClass />
       </DashboardLayout>
     </>
   );
