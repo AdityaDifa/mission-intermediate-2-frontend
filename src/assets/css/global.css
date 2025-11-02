@@ -18,10 +18,14 @@ h5 {
   font-family: "Poppins", sans-serif;
   @apply tracking-wide;
 }
-p {
+p summary {
   font-family: "DM Sans", sans-serif;
   @apply text-[14px] md:text-[16px];
 }
 p.gray {
   @apply text-[#333333AD];
+}
+
+a.gray {
+  @apply text-gray-700;
 }

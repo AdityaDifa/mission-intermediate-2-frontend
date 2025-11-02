@@ -8,6 +8,7 @@ import { useState } from "react";
 import ListClass from "../components/design/ListClass";
 import ScrollCategories from "../components/design/ScrollCategories";
 import board_2 from "../images/background-images/board-2.jpg";
+import FooterLayout from "../layouts/features/FooterLayout";
 
 export default function DashboardPage() {
   const [category, setCategories] = useState("Semua Kelas");
@@ -64,6 +65,7 @@ export default function DashboardPage() {
           </div>
         </BoardInformation>
       </DashboardLayout>
+      <FooterLayout />
     </>
   );
 }

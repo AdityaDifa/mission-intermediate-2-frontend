@@ -54,8 +54,12 @@ export default function ListClass({ category }: { category: any }) {
       }) {
         return (
           <>
-            {Array.from({ length: numberIcon }, () => (
-              <img src={icon} className="w-5 h-5" />
+            {Array.from({ length: numberIcon }, (_, index) => (
+              <img
+                src={icon}
+                className="w-5 h-5"
+                key={`${index}_${numberIcon}_${icon}`}
+              />
             ))}
           </>
         );
