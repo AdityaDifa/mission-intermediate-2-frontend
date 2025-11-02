@@ -41,7 +41,7 @@ export default function DashboardPage() {
           </p>
         </div>
         <ScrollCategories category={category} setCategories={setCategories} />
-        <ListClass />
+        <ListClass category={category} />
       </DashboardLayout>
     </>
   );

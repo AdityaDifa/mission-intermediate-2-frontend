@@ -16,7 +16,7 @@ type TCard = {
   price: number;
   category: string;
 };
-export default function ListClass() {
+export default function ListClass({ category }: { category: any }) {
   const lists = DBListClass;
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -110,20 +110,37 @@ export default function ListClass() {
 
   return (
     <div className={`grid gap-4 ${isMobile ? "grid-cols-1" : "grid-cols-3"}`}>
-      {lists.map((list) => (
-        <Card
-          title={list.title}
-          desc={list.desc}
-          mentorName={list.mentorName}
-          mentorJob={list.mentorJob}
-          jobPlace={list.jobPlace}
-          rating={list.rating}
-          voters={list.voters}
-          price={list.price}
-          category={list.category}
-          key={list.title}
-        />
-      ))}
+      {lists.map((list) =>
+        category === list.category ? (
+          <Card
+            title={list.title}
+            desc={list.desc}
+            mentorName={list.mentorName}
+            mentorJob={list.mentorJob}
+            jobPlace={list.jobPlace}
+            rating={list.rating}
+            voters={list.voters}
+            price={list.price}
+            category={list.category}
+            key={list.title}
+          />
+        ) : (
+          category === "Semua Kelas" && (
+            <Card
+              title={list.title}
+              desc={list.desc}
+              mentorName={list.mentorName}
+              mentorJob={list.mentorJob}
+              jobPlace={list.jobPlace}
+              rating={list.rating}
+              voters={list.voters}
+              price={list.price}
+              category={list.category}
+              key={list.title}
+            />
+          )
+        )
+      )}
     </div>
   );
 }
